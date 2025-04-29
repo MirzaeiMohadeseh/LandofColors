@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isJumping == false)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
-            Debug.Log("paridan");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
