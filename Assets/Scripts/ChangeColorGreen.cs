@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathScript : MonoBehaviour
+public class ChangeColor : MonoBehaviour
 {
-    public GameObject startPoint;
+    public GameObject paint;
     public GameObject player;
+    public GameObject bg_first;
+    public GameObject bg_next;
+    private SpriteRenderer backgroundRenderer;
     // Start is called before the first frame update
     void Start()
     {
-
+        backgroundRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,7 +24,9 @@ public class DeathScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player.transform.position = startPoint.transform.position;
+            bg_first.SetActive(false);
+            bg_next.SetActive(true);
+            paint.SetActive(false);
         }
     }
 
