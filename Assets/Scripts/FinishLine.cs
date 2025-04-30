@@ -1,8 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class FinishLine : MonoBehaviour
 {
+    public GameObject pauseMenu; // اشاره به منوی پاز در Inspector
+    public string nextLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,15 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("level2");
+            SceneManager.LoadScene(nextLevel);
+           
+        }
+        if (other.gameObject.CompareTag("Player") && SceneManager.GetActiveScene().name == "level3")
+        {
+            Time.timeScale = 0f; // توقف بازی
+            pauseMenu.SetActive(true); // نمایش منوی پاز
+            Cursor.visible = true; // نشان دادن موس
+            Debug.Log("Finish Line Reached in Level 3!");
         }
     }
 }

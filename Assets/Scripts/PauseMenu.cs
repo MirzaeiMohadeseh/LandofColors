@@ -1,13 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+
     void Start()
     {
-        Cursor.visible = false; 
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -26,20 +27,18 @@ public class PauseMenu : MonoBehaviour
                 Time.timeScale = 1f;
                 pauseMenu.SetActive(false);
                 Cursor.visible = false;
-
             }
         }
-        
     }
     public void quit()
     {
         Application.Quit();
     }
+
     public void resume()
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         Cursor.visible = false;
     }
-
 }
